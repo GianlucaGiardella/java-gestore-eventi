@@ -10,10 +10,19 @@ public class Concerto extends Evento {
     private LocalTime ora;
     private BigDecimal prezzo;
 
-    public Concerto(String titolo, LocalDate data, int postiTotali, LocalTime ora, BigDecimal prezzo) throws IllegalArgumentException {
+    public Concerto(
+            String titolo,
+            LocalDate data,
+            int postiTotali,
+            LocalTime ora,
+            BigDecimal prezzo
+    ) throws IllegalArgumentException {
+
         super(titolo, data, postiTotali);
 
         checkOra(ora);
+        checkPrezzo(prezzo);
+        checkPrezzoPositivo(prezzo);
 
         this.ora = ora;
         this.prezzo = prezzo;
@@ -32,10 +41,13 @@ public class Concerto extends Evento {
     // Setters
 
     public void setOra(LocalTime ora) {
+        checkOra(ora);
         this.ora = ora;
     }
 
     public void setPrezzo(BigDecimal prezzo) {
+        checkPrezzo(prezzo);
+        checkPrezzoPositivo(prezzo);
         this.prezzo = prezzo;
     }
 
@@ -44,6 +56,18 @@ public class Concerto extends Evento {
     private void checkOra(LocalTime ora) throws IllegalArgumentException {
         if (ora == null) {
             throw new IllegalArgumentException("ora non valida");
+        }
+    }
+
+    private void checkPrezzo(BigDecimal prezzo) throws IllegalArgumentException {
+        if (prezzo == null) {
+            throw new IllegalArgumentException("prezzo non valido");
+        }
+    }
+
+    private void checkPrezzoPositivo(BigDecimal prezzo) throws IllegalArgumentException {
+        if (prezzo.signum() < 1) {
+            throw new IllegalArgumentException("prezzo minore o uguale a 0");
         }
     }
 
@@ -64,7 +88,7 @@ public class Concerto extends Evento {
 
     @Override
     public String toString() {
-        return  dataEOraFormattata() + " - " +
+        return dataEOraFormattata() + " - " +
                 getTitolo() + " - " +
                 prezzoFormattato();
     }

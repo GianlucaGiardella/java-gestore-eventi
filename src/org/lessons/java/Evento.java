@@ -60,26 +60,26 @@ public class Evento {
         }
     }
 
-    private void checkData(LocalDate data) throws IllegalArgumentException {
+    private static void checkData(LocalDate data) throws IllegalArgumentException {
         if (data == null || data.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("la data è minore di quella ordierna");
         }
     }
 
-    private void checkPostiPositivi(int posti, String nomePosti) throws IllegalArgumentException {
+    private static void checkPostiPositivi(int posti, String nomePosti) throws IllegalArgumentException {
         if (posti <= 0) {
             throw new IllegalArgumentException("numero di " + nomePosti + " è minore o uguale a 0");
         }
     }
 
     private void checkPostiMinoriDelTotale(int posti) throws IllegalArgumentException {
-        if (posti + this.postiPrenotati > postiTotali) {
+        if (posti + this.postiPrenotati > this.postiTotali) {
             throw new IllegalArgumentException("i posti prenotati superaro quelli totali");
         }
     }
 
     private void checkDisdetteMinoriDellePrenotazioni(int posti) throws IllegalArgumentException {
-        if (posti > postiPrenotati) {
+        if (posti > this.postiPrenotati) {
             throw new IllegalArgumentException("i posti da disdire sono maggiori di quelli prenotati");
         }
     }

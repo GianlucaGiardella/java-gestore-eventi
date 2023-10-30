@@ -89,28 +89,42 @@ public class Main {
             }
         }
 
-        // Verifica classe Concerto
-        /*System.out.println("\n- Nuovo concerto");
+        // Prova della classe Concerto
 
-        System.out.println("Inserire il titolo: ");
-        String titolo = scanner.nextLine();
+        /*while (!esci) {
+            System.out.println("\n- Vuoi aggiungere un nuovo concerto ? y | n");
+            esci = scanner.nextLine().equals("n");
 
-        System.out.println("Inserire la data: ");
-        LocalDate data = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            if (!esci) {
+                System.out.println("\n- Nuovo concerto");
 
-        System.out.println("Inserire l'ora: ");
-        LocalTime ora = LocalTime.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("HH:mm:ss"));
+                try {
+                    System.out.println("Inserire il titolo: ");
+                    String titolo = scanner.nextLine();
 
-        System.out.println("Inserire il numero di posti totali: ");
-        int postiTotali = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Inserire la data: ");
+                    LocalDate data = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
-        System.out.println("Inserire il prezzo: ");
-        BigDecimal prezzo = new BigDecimal(scanner.nextLine());
+                    System.out.println("Inserire l'ora: ");
+                    LocalTime ora = LocalTime.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("HH:mm:ss"));
 
-        System.out.println("Concerto creato con successo !");
-        Concerto concerto = new Concerto(titolo, data, postiTotali, ora, prezzo);
+                    System.out.println("Inserire il numero di posti totali: ");
+                    int postiTotali = Integer.parseInt(scanner.nextLine());
 
-        System.out.println(concerto);*/
+                    System.out.println("Inserire il prezzo: ");
+                    BigDecimal prezzo = new BigDecimal(scanner.nextLine());
+
+                    Concerto concerto = new Concerto(titolo, data, postiTotali, ora, prezzo);
+                    System.out.println("\n- Concerto creato con successo !");
+
+                    System.out.println(concerto);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("\n- Errore: " + e.getMessage());
+                }
+            } else {
+                System.out.println("\n- Buona giornata");
+            }
+        }*/
 
         scanner.close();
     }
