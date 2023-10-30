@@ -86,6 +86,10 @@ public class Evento {
 
     // Utilità
 
+    public String dataFormattata() {
+        return getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
     public void prenota(int posti) throws IllegalArgumentException {
         checkData(this.data);
         checkPostiPositivi(posti, "posti prenotati");
@@ -104,6 +108,6 @@ public class Evento {
 
     @Override
     public String toString() {
-        return getData().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + " - " + getTitolo();
+        return dataFormattata() + " - " + getTitolo();
     }
 }

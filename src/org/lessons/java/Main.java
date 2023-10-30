@@ -1,6 +1,9 @@
 package org.lessons.java;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -85,6 +88,29 @@ public class Main {
                 System.out.println("\n- Buona giornata");
             }
         }
+
+        // Verifica classe Concerto
+        /*System.out.println("\n- Nuovo concerto");
+
+        System.out.println("Inserire il titolo: ");
+        String titolo = scanner.nextLine();
+
+        System.out.println("Inserire la data: ");
+        LocalDate data = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
+        System.out.println("Inserire l'ora: ");
+        LocalTime ora = LocalTime.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("HH:mm:ss"));
+
+        System.out.println("Inserire il numero di posti totali: ");
+        int postiTotali = Integer.parseInt(scanner.nextLine());
+
+        System.out.println("Inserire il prezzo: ");
+        BigDecimal prezzo = new BigDecimal(scanner.nextLine());
+
+        System.out.println("Concerto creato con successo !");
+        Concerto concerto = new Concerto(titolo, data, postiTotali, ora, prezzo);
+
+        System.out.println(concerto);*/
 
         scanner.close();
     }
