@@ -42,7 +42,9 @@ public class ProgrammEventi {
     // Utilità
 
     public void aggiungiEvento(Evento evento) {
+        if (!eventi.contains(evento)){
         this.eventi.add(evento);
+        }
     }
 
     public List cercaEventiDallaData(LocalDate data) {

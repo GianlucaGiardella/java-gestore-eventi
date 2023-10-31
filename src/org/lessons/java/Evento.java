@@ -2,6 +2,7 @@ package org.lessons.java;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Evento {
     private String titolo;
@@ -109,5 +110,18 @@ public class Evento {
     @Override
     public String toString() {
         return dataFormattata() + " - " + getTitolo();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Evento evento = (Evento) o;
+        return Objects.equals(titolo, evento.titolo) && Objects.equals(data, evento.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titolo);
     }
 }
